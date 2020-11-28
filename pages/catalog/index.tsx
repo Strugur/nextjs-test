@@ -1,8 +1,11 @@
+// import {PagePro} from 'next'
+
 import ProductList  from './ProductList/ProductList';
 import axios from 'axios';
 
-export default function Catalog ({productList}){
-    console.log(productList);
+export default function Catalog (props){
+    let {productList} = props.pageProps;
+    
     return (
         <>
             <h1>Product catalog</h1>
@@ -16,14 +19,14 @@ export default function Catalog ({productList}){
 
 Catalog.getInitialProps = async (ctx) => {
     
-    // try {
-    //     const res = await axios.get('http://localhost:5000/api/product/list');
-    //     // console.log(res.data);
-    //     return { productList: res.data }
+    try {
+        const res = await axios.get('http://localhost:3000/api/product/list');
+        console.log('res.data',res.data);
+        return { productList: res.data }
         
-    // } catch (err) {
-    //     // Handle Error Here
-    //     console.error(err);
-    // }
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
     return {productList:[]};
 }

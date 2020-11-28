@@ -5,15 +5,22 @@ import Link from 'next/link'
  const NavBar = () => {
     return (
         <div className="navbar">
-            <Link href='product'>
+            <div>
+            <Link href='product' >
                 ProductShow
             </Link>
+            </div>
+            
+            
             <Link href='catalog'>
                 Catalog
             </Link>
+            <div>
             <Link href='admin'>
                 Admin
             </Link>
+            </div>
+            
 
             
            
